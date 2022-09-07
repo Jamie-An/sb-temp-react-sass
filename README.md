@@ -1,15 +1,15 @@
-# storybook-templet-react-less
+# storybook-templet-react-sass
 
 ![](https://raw.githubusercontent.com/Jamie-An/bucket/main/img/202208121621056.png)
 
-> 一个基于 storybook 扩展的组件库开发环境： storybook@6 + react@17 + TS + Less
+> 一个基于 storybook 扩展的组件库开发环境： storybook@6 + react@17 + TS + sass
 
 ```shell
 # 1、拉取项目
-git clone https://github.com/Jamie-An/sb-temp-react-less.git
+git clone https://github.com/Jamie-An/sb-temp-react-sass.git
 
 # 2、安装依赖
-cd sb-temp-react-less
+cd sb-temp-react-sass
 npm i
 
 # 3、启动项目
@@ -39,7 +39,6 @@ npm publish .
 │ ├── build-package.js          # 定义打包流程
 │ ├── build.babel.config.js     # 打包时的 babel 配置
 │ ├── build.tsconfig.json       # 打包时的 TS 配置,主要用于屏蔽.stories.tsx
-| └── less2css.js               # 主要封装了 lessc, 提供批量编译能力
 ├── storybook-static            # 站点打包后的静态文件产物 (gitignore)
 ├── node_modules                # 开发依赖包 (gitignore)
 ├── package                     # build-package的产物，用于发npm包 (gitignore)
@@ -49,7 +48,7 @@ npm publish .
 │   ├── xxx-xxx                 # 某组件源码 (小写+中划线命名)
 │     ├── xxx.stories.tsx       # 组件Demo
 │     ├── style                 # 组件样式文件
-|        ├── index.less         # 组件样式文件
+|        ├── index.scss         # 组件样式文件
 │     ├── index.ts              # 组件入口文件，用于 export 组件及 TS声明
 │     ├── Xxxx.tsx              # 组件子组成部分(大驼峰命名)
 │ ├── assets                    # 存放静态资源，如: 图片、svg、font等。

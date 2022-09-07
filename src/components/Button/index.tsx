@@ -1,6 +1,6 @@
 import React, { FC, ReactNode, ReactComponentElement } from 'react';
 import PropTypes from "prop-types";
-import "./style/button.less";
+import "./style/button.scss";
 
 interface ButtonPropTypes {
   primary?: boolean

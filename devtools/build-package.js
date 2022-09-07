@@ -2,8 +2,6 @@ const fs = require('fs')
 const path = require('path')
 const del = require('del')
 const { execSync } = require('child_process')
-// Tips：less不提供批量编译能力，此处做了封装
-const lessc = require('./less2css')
 
 process.chdir(path.join(__dirname, '../'))
 
@@ -19,15 +17,13 @@ async function main() {
   console.log('[packaging] 1、emit ts declaration...')
   execSync(`npx tsc --project "./devtools/build.tsconfig.json"`)
 
-  // 3、批量编译 less => css
+  // 3、批量编译 scss => css
   console.log('[packaging] 2、emit css...')
-  lessc('./src', './package/lib')
+  execSync(`npx sass --update --no-source-map ./src:./package/lib`)
 
   // 4、增加 css前缀 (TODO: 解决异步等待的问题)
-  setTimeout(() => {
-    console.log('[packaging] 3、emit autoprefixer...')
-    execSync(`npx postcss package/**/*.css -u autoprefixer -r --no-map `)
-  }, 2000)
+  console.log('[packaging] 3、emit autoprefixer...')
+  execSync(`npx postcss package/**/*.css -u autoprefixer -r --no-map `)
 
   // 5、增加 package.json 文件
   const packageJSON = JSON.parse(

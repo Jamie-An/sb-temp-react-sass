@@ -9,7 +9,7 @@ module.exports = {
       // 打包时替换 .scss => css
       'transform-rename-import',
       {
-        original: '^(.+?)\\.less$',
+        original: '^(.+?)\\.scss$',
         replacement: '$1.css',
       },
     ],

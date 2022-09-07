@@ -23,8 +23,8 @@ module.exports = {
   webpackFinal: async (config, { env }) => {
     console.log('ENV:', env)
     config.module.rules.push({
-      test: /\.less$/,
-      use: ['style-loader', 'css-loader', 'postcss-loader', 'less-loader'],
+      test: /\.scss$/,
+      use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'],
       include: path.resolve(__dirname, '../src'),
     })
     return config
